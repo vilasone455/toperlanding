@@ -1,22 +1,14 @@
-import React from 'react'
-
-export default function Posts() {
-    const postList = filterPosts(props.summaryJson)
-    return (
-        <div className="center mw6 pa3 pa4-ns">
-        {postList.map((article, i) => {
-          const href = makeUrl(article)
-          const date = formatDate(article.date)
-          return (
-            <PagePreview
-              title={article.title}
-              preview={article.preview}
-              date={date}
-              href={href}
-              key={i}
-            />
-          )
-        })}
-      </div>
-    )
+import { Post } from "../components/Post";
+import { posts } from "../getPosts";
+import Container from '@material-ui/core/Container';
+export default function PostPage() {
+  return (
+    <Container>
+      {posts.map((post) => (
+        <Post key={post.link} post={post} />
+      ))}
+    </Container>
+  );
 }
+
+// My blog: https://www.ibrahima-ndaw.com/

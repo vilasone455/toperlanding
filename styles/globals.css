@@ -1,16 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.mybg {
+  background-color: #06263d;
 }
 
-* {
-  box-sizing: border-box;
+.head-border {
+  border-top: 4px solid#06263D;
 }
+
+.blacktext {
+  color: #06263d;
+}
+
+h1,
+h2 {
+  font-family: Lato;
+}
+

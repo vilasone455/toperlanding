@@ -1,35 +1,31 @@
-import Link from "next/link";
+
 
 export default function Header() {
+
+
   return (
-    <nav>
-      <h1>Next'Blog</h1>
-      <div>
-        <Link href="/">
-          <a>Blog</a>
-        </Link>
-        <Link href="/">
-          <a>About</a>
-        </Link>
+    <div className="mybg">
+    <div className="container mx-auto px-8 ">
+                <header
+          className="flex flex-col sm:flex-row items-center justify-between py-6 relative border-top-4 border-blue-500">
+          <h3 className="text-2xl font-bold uppercase text-white">Logo</h3>
+          <nav className="hidden md:flex text-lg">
+
+            <a href="#" className="text-white hover:text-purple-300 py-3 px-6">Features</a>
+            <a href="#" className="text-white hover:text-purple-300 py-3 px-6">Contact</a>
+            <a href="#" className="text-white hover:text-purple-300 py-3 px-6">What new</a>
+            <a href="#" className="text-white hover:text-purple-300 py-3 px-6">FAQ</a>
+            <a href="#" className="bg-purple-200 hover:bg-purple-300 rounded-full uppercase text-purple-700 py-3 px-6">Sign
+              Up</a>
+          </nav>
+          <button className="flex md:hidden flex-col absolute top-0 right-0 p-4 mt-5">
+                  <span className="w-5 h-px mb-1 bg-orange-500"></span>
+                  <span className="w-5 h-px mb-1 bg-orange-500"></span>
+                  <span className="w-5 h-px mb-1 bg-orange-500"></span>
+              </button>
+        </header>
       </div>
-      <style jsx>{`
-        nav {
-          background: #444;
-          width: auto;
-          padding: 0 2rem;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          font-size: 1rem;
-        }
-        nav a {
-          margin-right: 1rem;
-          text-decoration: none;
-        }
-        nav a:hover {
-          text-decoration: underline;
-        }
-      `}</style>
-    </nav>
+    </div>
+
   );
 }
