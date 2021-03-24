@@ -7,7 +7,7 @@ import ReactMde from "react-mde";
 
 import "react-mde/lib/styles/css/react-mde-all.css";
 import Loading from '../../components/Loading';
-import { addPost } from '../../getPosts';
+import { addPost } from '../../postapi';
 
 const NewPost = () => {
     const [post, setPost] = useState({
