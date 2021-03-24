@@ -2,7 +2,9 @@ import Head from "next/head";
 
 import Header from './header';
 
-export default function Layout({ children, pageTitle, description }) {
+import LightHeader from './LightHeader'
+
+export default function Layout({ children, pageTitle, description , isLanding = false }) {
   return (
     <>
     
@@ -12,7 +14,7 @@ export default function Layout({ children, pageTitle, description }) {
         <meta name="Description" content={description}></meta>
         <title>{pageTitle}</title>
       </Head>
-      <Header />
+      {isLanding ? <Header/> : <LightHeader/>}
     <main>
       {children}
     </main>

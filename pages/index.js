@@ -1,10 +1,11 @@
 
 import Header from '../components/header'
+import Layout from '../components/Layout'
 
 export default function IndexPage() {
 
   return (
-    <>
+    <Layout pageTitle="Top Diagram" description="Best Diagram Draw tool" isLanding={true}>
       <div className="mybg">
         <div className="container mx-auto px-8 ">
 
@@ -110,7 +111,7 @@ export default function IndexPage() {
 
       <Header/>
      
-    </>
+    </Layout>
 
 
   );

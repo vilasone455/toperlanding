@@ -1,14 +1,6 @@
-
-import BlogPost from '../../../components/BlogPost.js'
-
-export const meta = {
-  title: 'New Update Aug 2020',
-  description: 'Getting started with the Next framework',
-  date: 'Aug 04, 2020',
-  readTime: 2 
-}
-
-export default ({ children }) => <BlogPost meta={meta}>{children}</BlogPost>;
+---
+title:  "Welcome to Next.js blogt!"
+---
 
 ## New Feature
  - Fast Switch : Allow Quick Switch between Model to Help you Fast Edit Diagram Data

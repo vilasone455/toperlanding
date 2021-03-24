@@ -1,3 +1,4 @@
+import Link from "next/link"
 
 
 export default function Header() {
@@ -11,9 +12,17 @@ export default function Header() {
           <h3 className="text-2xl font-bold uppercase text-white">Logo</h3>
           <nav className="hidden md:flex text-lg">
 
-            <a href="#" className="text-white hover:text-purple-300 py-3 px-6">Features</a>
-            <a href="#" className="text-white hover:text-purple-300 py-3 px-6">Contact</a>
-            <a href="#" className="text-white hover:text-purple-300 py-3 px-6">What new</a>
+            <Link href="/Features"  >
+              <a className="text-white hover:text-purple-300 py-3 px-6">
+              Features
+              </a></Link>
+            <Link href="/Features">
+            <a  className="text-white hover:text-purple-300 py-3 px-6">Contact</a>
+            </Link>
+            <Link href="/Posts">
+            <a  className="text-white hover:text-purple-300 py-3 px-6">What new</a>
+            </Link>
+            
             <a href="#" className="text-white hover:text-purple-300 py-3 px-6">FAQ</a>
             <a href="#" className="bg-purple-200 hover:bg-purple-300 rounded-full uppercase text-purple-700 py-3 px-6">Sign
               Up</a>
