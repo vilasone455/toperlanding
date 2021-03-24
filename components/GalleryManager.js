@@ -46,7 +46,6 @@ export default function GalleryManager() {
                 console.log(error);
             },
             () => {
-
                 storage.ref("images").child(imageUpload.name).getDownloadURL()
                     .then(url => {
                         addImage(url)
@@ -78,10 +77,7 @@ export default function GalleryManager() {
         alert("add  " + url )
 
         return newimg
-   
     }
-
-
 
     return (
         <div id="modal_overlay" className="absolute inset-0 bg-black bg-opacity-30 h-screen w-full flex justify-center items-start md:items-center pt-10 md:pt-0">

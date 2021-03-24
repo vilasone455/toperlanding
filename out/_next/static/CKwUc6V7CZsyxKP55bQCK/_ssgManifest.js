@@ -1,0 +1,1 @@
+self.__SSG_MANIFEST=new Set(["\u002FPosts","\u002Fadmin\u002Fviewpost"]);self.__SSG_MANIFEST_CB&&self.__SSG_MANIFEST_CB()
