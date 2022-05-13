@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react'
-import { db, storage } from '../utils/db'
+import React, {useState , useEffect} from 'react'
+import { db , storage } from '../utils/db'
 
-export default function GalleryManager() {
+export default function GalleryComponent(props) {
 
     const [images, setimages] = useState([])
 
@@ -20,7 +20,7 @@ export default function GalleryManager() {
         let gallerys = galleryRs.docs.map(entry => entry.data());
         let images = []
         gallerys.forEach(image => {
-            alert(image.isUrl)
+           
            images.push({url : image.url , name : image.name , isUrl : image.isUrl})
         });
         setimages(images)
@@ -34,7 +34,7 @@ export default function GalleryManager() {
     const deleteImage = async (name , isUrl) => {
         let imageRef = await db.collection("gallerys").where("name" , "==" , name).get()
         if(imageRef.docs[0]){
-            alert(isUrl)
+
             if(!isUrl){
                 await storage.ref(`images/${name}`).delete()
             }        
@@ -91,46 +91,38 @@ export default function GalleryManager() {
         return newimg
     }
 
+
     return (
-        <div id="modal_overlay" className="absolute inset-0 bg-black bg-opacity-30 h-screen w-full flex justify-center items-start md:items-center pt-10 md:pt-0">
-  
-        <div id="modal" className="pacity-0 transform relative w-10/12 md:w-3/4 h-1/2 md:h-3/4 bg-white rounded shadow-lg transition-opacity transition-transform duration-300">
-          {/* button close */}
-          <button onclick="openModal(false)" className="absolute -top-3 -right-3 bg-red-500 hover:bg-red-600 text-2xl w-10 h-10 rounded-full focus:outline-none text-white">
-            ✗
-          </button>
-   
-          <div className="px-4 py-3 border-b border-gray-200">
-            <h2 className="text-xl font-semibold text-gray-600">Gallery</h2>
-          </div>
-          
-          <div className="w-full p-3">
-                    <button onClick={toggleAddUrl}>Add Url</button>
-                    <button onClick={startUpload}>Add Image</button>
-                    {(isAddUrlToggle ? <>
-                        <input type="text" onChange={e=>setaddUrlInput(e.target.value)} value={addUrlInput} className="" />
-                        <button onClick={addUrl}>Save</button>
-                    </> : "")}
-                   
-                    <input type="file" id="imgele" onChange={handleChange}  style={{display:"none"}} />
+        <div>
+            <div>
+                {props.children}
+            </div>
+                    <div className="w-full p-3">
+                    <button class="py-1 px-4 capitalize bg-gray-800 text-white font-medium hover:bg-gray-700 focus:outline-none focus:bg-gray-700">Download</button>
+                    <button  class="bg-gray-800 p-2 hover:bg-gray-700 focus:outline-none focus:bg-gray-700">
+      <svg class="h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z" />
+      </svg>
+    </button>
+        <button onClick={toggleAddUrl} className="inline-flex items-center m-2 px-4 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Add Url</button>
+        <button onClick={startUpload} className="inline-flex items-center m-2 px-4 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Add Image</button>
+        {(isAddUrlToggle ? <>
+            <input type="text" onChange={e=>setaddUrlInput(e.target.value)} value={addUrlInput} className="" />
+            <button onClick={addUrl}>Save</button>
+        </> : "")}
+       
+        <input type="file" id="imgele" onChange={handleChange}  style={{display:"none"}} />
 
-                    <div className="grid grid-cols-6 gap-2">
-                        {images.map(image => {
-                            return (<div className="w-36 h-36 round overflow-hidden">
-                                <button className="absolute" onClick={()=>deleteImage(image.name , image.isUrl)}>X</button>
-                                <img src={image.url} alt={image.name} className="object-cover " />
-                            </div>)
-                        })}
-                    </div>
-          </div>
-        
-          <div className="absolute bottom-0 left-0 px-4 py-3 border-t border-gray-200 w-full flex justify-end items-center gap-3">
-            <button className="bg-green-500 hover:bg-green-600 px-4 py-2 rounded text-white focus:outline-none">Save</button>
-            <button onclick="openModal(false)" className="bg-red-500 hover:bg-red-600 px-4 py-2 rounded text-white focus:outline-none">Close</button>
-          </div>
+        <div className="grid grid-cols-6 gap-2">
+            {images.map(image => {
+                return (<div className="w-50 h-36 round overflow-hidden">
+                    <button className="absolute" onClick={()=>deleteImage(image.name , image.isUrl)}>X</button>
+                    <img src={image.url} alt={image.name} className="object-cover " />
+                </div>)
+            })}
         </div>
-      </div>
-
+</div>            
+        </div>
 
     )
 }

@@ -10,6 +10,10 @@ body {
   margin: 0;
 }
 
+.feature-img{
+	filter: invert(36%) sepia(84%) saturate(2286%) hue-rotate(225deg) brightness(99%) contrast(90%);
+}
+
 .loader {
 	border-top-color: #3498db;
 	-webkit-animation: spinner 1.5s linear infinite;

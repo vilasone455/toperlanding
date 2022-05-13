@@ -9,9 +9,9 @@ export default function LightHeader() {
              <h3 className="text-xl font-bold uppercase text-blue-900">Logo</h3>
               <nav className="hidden md:flex text-base">
                   <a href="#" className="text-gray-800 hover:text-purple-300 py-3 px-4">Home</a>
-                  <a href="#" className="text-gray-800 hover:text-purple-300 py-3 px-6">Services</a>
-                  <a href="#" className="text-gray-800 hover:text-purple-300 py-3 px-6">About</a>
-                  <a href="#" className="text-gray-800 hover:text-purple-300 py-3 px-6">Contact</a>
+                  <a href="./Features" className="text-gray-800 hover:text-purple-300 py-3 px-6">Features</a>
+                  <a href="./pricing" className="text-gray-800 hover:text-purple-300 py-3 px-6">Pricing</a>
+                  <a href="./blog" className="text-gray-800 hover:text-purple-300 py-3 px-6">What new</a>
                   <a href="#" className="text-gray-800 hover:text-purple-300 py-3 px-6">FAQ</a>
                   <a href="#" className="bg-purple-200 hover:bg-purple-300 rounded-full uppercase text-purple-700 py-3 px-6">Sign Up</a>
               </nav>

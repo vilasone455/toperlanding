@@ -3,6 +3,7 @@ import FeatureItem from '../components/FeatureItem'
 import Layout from '../components/Layout'
 import StartMenu from  '../components/startmenu'
 import {featureData} from '../data/features'
+
 export default function Features() {
     return (
         <Layout pageTitle="Feature" description="Top Diagram Feature">
@@ -12,7 +13,7 @@ export default function Features() {
             <div className="grid grid-cols-3 gap-8">
                 {featureData.map(f=>{
                     return (
-                        <FeatureItem title={f.title} icon={f.icon} key={`feature${f.title}`} />
+                        <FeatureItem title={f.title} description={f.desc} icon={f.icon} key={`feature${f.title}`} />
                     )
                 })}
 
